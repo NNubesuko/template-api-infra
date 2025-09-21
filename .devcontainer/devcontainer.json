@@ -1,0 +1,25 @@
+{
+    "name": "Template API",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+    "features": {
+        "ghcr.io/devcontainers/features/aws-cli:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "version": "latest"
+        },
+        "ghcr.io/localstack/devcontainer-feature/localstack-cli:0": {
+            "version": "latest",
+            "awslocal": true,
+            "tflocal": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "postStartCommand": "localstack start -d && chmod +x .devcontainer/init.sh && .devcontainer/init.sh",
+    "forwardPorts": [3000, 4566]
+}
