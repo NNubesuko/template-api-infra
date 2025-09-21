@@ -7,16 +7,4 @@ resource "aws_dynamodb_table" "users" {
     name = "id"
     type = "S"
   }
-
-  # 必要なら email をインデックスに追加
-  global_secondary_index {
-    name            = "email-index"
-    hash_key        = "email"
-    projection_type = "ALL"
-  }
-
-  attribute {
-    name = "email"
-    type = "S"
-  }
 }

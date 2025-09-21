@@ -57,6 +57,6 @@ locals {
   }
 
   iam_role_policy_GitHubActionsPolicy = {
-    resource = "arn:aws:lambda:ap-northeast-1:${local.account_id}:function:${local.resource_prefixs.lambda}-webapp"
+    resource = "arn:aws:lambda:${local.aws_region}:${local.account_id}:function:${local.resource_prefixs.lambda}-webapp"
   }
 }
